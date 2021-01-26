@@ -1,0 +1,808 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+/*aqui usamo o eixo X, para que todo contúdo vertical no ultrapasse o 
+100vw, que é o MAx do width*/
+    overflow-x: hidden;
+}
+header{
+    height: 100px;
+    background-color: black;
+}
+.header{
+    max-width:1140px ;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    align-items: center;/* para alinhar o itens no meio eu não preciso necessárimente usar o diply flex*/
+}
+.logo{
+    width: 100px;
+}
+.logoimg{
+    width: 80px;
+    height: 80px;
+    background-color: #b28756;
+    border-radius: 40px;
+}
+.menu-resp {
+    display: none;
+}
+.menu{
+    flex: 1; /*pega todo o restante do epaço*/
+    display: flex;
+    justify-content: flex-end; /*alinha a direta do contúdo*/
+}
+.menu ul, .menu li {
+    list-style: none;
+}
+.menu ul {
+    display:flex;
+}
+.menu li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    padding-left:10px;
+    padding-left:10px;
+    display: flex;
+    align-items: center;
+    height: 100px; 
+    border-bottom: 5px solid #000;
+   
+}
+.menu li a:hover, .menu .active a{
+    border-bottom: 5px solid #b28756;
+    color: #ccc;
+}
+
+.banner{
+    height:calc(100vh - 100px);
+    /*o calc com o 100vh é para deixa o banner do tamanho exato do monito/celular
+    no seu height*/
+    background-color:#333;
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-position: bottom;
+    overflow: hidden;
+    /*isso faz com que tudo que passe do tamanho do meu banner "suma"*/
+
+}
+.banner .sliders {
+    width: 1000vw;
+    height: 100%;
+
+}
+.banner .slide {
+    width: 100vw;
+    height: 100%;
+    display: inline-block;
+    /*fica ao lado do outro mais matém as propriedades setadas*/
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.banner .sliderarea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    color:#fff;
+}
+.sliderarea, .slide {
+    overflow: hidden;
+}
+.banner h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 50px;
+}
+.banner h1 span {
+    color:#b28756;
+}
+.banner h2{
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+.banner a {
+    background-color:#b28756;
+    color:#fff;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 30px;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+.banner .sliders-pointers{
+    width: 100vw;
+    height: 20px;
+    position: absolute;
+    margin-top: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner .pointer{
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 8px;
+    border:2px solid #b27856;
+    cursor: pointer;
+}
+.banner .pointer.active{
+    background-color: #b27856;
+    overflow: hidden;
+}
+
+.default{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.default .section-title, .section-desc{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.default .section-title{
+    font-size: 20px;
+    font-weight: 600;
+}
+.default .section-desc {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+.default .section-body {
+    margin: auto;
+    max-width: 1140px;
+    
+} 
+.default.light{
+    background-color: #f7f7f7;
+}
+.default.light .section-title 
+.default.light .section-body{
+    color: #000;
+}
+
+.default.dark {
+    background-color: #000;
+}
+.default.dark .section-title, 
+.default.dark .section-body{
+    color:#fff;
+}
+.button{
+    display: flex;
+    background-color:#b28756;
+    color:#fff;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 30px;
+    margin-top: 50px;
+    border-radius: 20px;
+    width: 140px;
+    text-align: center;
+}
+.button3{
+    display: flex;
+    background-color:#b28756;
+    color:#fff;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 30px;
+    margin-top: 50px;
+    border-radius: 20px;
+    width: 160px;
+    text-align: center;
+}
+
+
+
+/*
+CSS DE AREAS ESPECIFICAS
+*/
+
+.section-aboutus{
+    display: flex;
+}
+.section-aboutus--left{
+    flex:1;
+}
+.section-aboutus--right{
+    width: 520px;
+    text-align: center;
+}
+.section-aboutus--right img {
+    width: 480px;
+    box-shadow: 0px 5px 15px #919191 ;
+}
+.section-aboutus--left p{
+    font-size: 14px;
+    line-height: 25px;
+}
+.section-services{
+    display: flex;
+}
+.section-service{
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    border-right: 1px solid #333;
+}
+.section-service:first-child{
+    border-left: 1px solid #333;
+}
+.section-service h4 {
+    font-weight: 300;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 16px;
+
+}
+.section-service p{
+    margin-top: 10px;
+    color: #777;
+}
+
+
+
+.section-projects{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.section-projects-filters{
+    border: 1px solid #ccc;
+    background-color: #eee;
+    border-radius: 30px;
+    display: inline-block;
+    padding: 0px 20px;
+    margin: auto;
+    color: #555;
+    cursor: pointer;
+    /*colocar a mão no lugar da seta*/
+}
+
+.section-projects-filters ul,
+.section-projects-filters li{
+    list-style: none;
+}
+.section-projects-filters li{
+    display: inline-block;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-left: 1px solid #ccc;
+    border-bottom:3px solid #eee
+}
+.section-projects-filters li:first-child{
+    border-left: none;
+}
+.section-projects-filters li:hover,
+.section-projects-filters li.active{
+    border-bottom: 3px solid #b28756;
+}
+.section-projects--photos{
+    width: 100vw;
+    max-width: 1140;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    /*caso ultrapsse o limite máximo da tela as fotos irão quebrar automaticamente*/
+    justify-content: center;
+}
+.photo{
+    width: 280px;
+}
+.photo-area{
+    margin: 10px;
+    width: 260px;
+    height: 160px;
+}
+.photo-area img{
+    width: inherit;
+    height: inherit;
+}
+.photo-info{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: inherit;
+    height: inherit;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    flex-direction: column;
+}
+.photo-info h5{
+    font-size: 18px;
+    font-weight: 600;
+}
+.photo-area:hover .photo-info{
+    display: flex;
+}
+
+.bg-team{
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+}
+.team-area{
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+}
+.section-team{
+    overflow: hidden;
+    max-width: 880px;
+    margin: auto;
+}
+.section-team .sliders {
+    width: 1000vw;
+    height: 100%;
+    
+}
+.section-team .slide {
+    width: 280px;
+    height: 100%;
+    display: inline-block;
+    /*fica ao lado do outro mais matém as propriedades setadas*/
+    background-color:#fff;
+    margin-right: 20px;
+    min-height: 300px;
+    padding: 20px;
+}
+.section-team .sliderarea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    color:#000;
+}
+.team-area .sliders-pointers{
+    height: 20px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    
+}
+.team-area  .pointer{
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 8px;
+    border:2px solid #b27856;
+    cursor: pointer;
+
+}
+.team-area  .pointer.active{
+    background-color: #b27856;
+    overflow: hidden;
+}
+.avatar{
+    width: 150px;
+    height: auto;
+}
+.team-name{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 17px;
+    margin-top: 20px;
+
+}
+.team-function{
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+
+}
+.team-social{
+    margin-top: 10px;
+}
+.team-social a{
+    display: inline-block;
+    width: 40px;
+    padding: 10px;
+    background-color: #ccc;
+    border-radius: 25px;
+    text-align: center;
+}
+.team-social .active, .team-social a:hover{
+    background-color: #b28756;
+}
+.mapa{
+    background-image: url("../images/mapa.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(0.5);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.mapa-area{
+    width: 100vw;
+    max-width: 1140px;
+    margin: auto;
+}
+.mapa-info{
+    width: 50%;
+    padding: 30px;
+    background-color: #fffefe;
+    color: #000;
+}
+.mapa-info-icon{
+   display: flex;
+   align-items: center;
+   margin-top: 10px;
+   
+}
+.mapa-info-img {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 20px;
+    background-color: #ccc;
+    border-radius: 25px;
+    text-align: center;
+    margin-right: 10px;
+}
+.mapa-info-img img {
+    width: 20px;
+    height: auto;
+
+}
+.rodape {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    border-bottom:1px solid #777;
+    height: 300px;
+    bottom: 50px;
+    margin: 0;   
+}
+.area-rodape{
+    max-width: 1140px;
+    color: white;
+    display: flex;
+    height: 200px;
+    border-bottom:1px solid #777;
+    bottom: 100px;
+    top:0px;
+}
+.social-rodape, .info-rodape, .form-rodape {
+    max-width: 360px;
+    margin: 20px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+.info-rodape p{
+    font-weight: 400;
+    color: #000;
+    text-transform: uppercase;
+    line-height: 25px;
+    margin-top: 10px;
+    color: #fff;
+}
+.form-rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:rgba(230, 230, 230, 0.4);
+}
+#email{
+    max-width: 250px;
+    height: 30px;
+    margin-top:10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    font-size: 15px;
+    color:white;
+    background-color:rgba(230, 230, 230,0.0);
+}
+#finalizar{
+    display: flex;
+    background-color:#b28756;
+    color:#fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 40px;
+    margin-top: 50px;
+    border-radius: 20px;
+    max-width: 160px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+input::placeholder {
+    color:#ccc;
+ }
+ /*
+ ::-webkit-input-placeholder {
+   color: red;
+}
+Assim se usa para alterar ele em navegadores 
+*/
+  
+
+@media (min-width:450px) and (max-width:800px){
+    .logoimg{
+        margin-left: 30px;
+    }
+    .menu-resp {
+        width: 45px;
+        margin-right: 30px;
+        display: block;
+    }
+    nav {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 60%;
+        height: calc(100vh - 100px);
+        top: 100px;
+        right: 0;
+    }
+    .menu ul {
+        flex-direction: column; 
+
+    }
+    .menu li a {
+        font-weight: bold;
+        height: 60px;
+        font-size: 28px;
+        margin-left: 50px;
+        border: none;
+    }
+    
+    .menu li.active a{
+        border: none;
+        color: #b27856;
+    }
+    .section-aboutus{
+        flex-direction: column;
+        justify-content: center;
+        max-width: 1140px;
+    }
+    .section-aboutus--left{
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+    }
+    .section-aboutus--right{
+        width: auto;
+    }
+    .section-services{
+        flex-wrap: wrap;
+        /*fazer com que o item quebre de linha automaticamnete*/
+    }
+    .section-service{
+        min-width: 50%;
+        /*para fazer com que fique somente 2 por linha nesse designe*/
+    }
+    .section-service:first-child{
+        border-left: 0;
+    }
+    .mapa-info{
+        margin-left: 10px;
+        padding: 15px;
+        width: 300px;
+        font-size: 12px;
+    }
+    .mapa-info-img{
+        width: 20px;
+        height: 20px;
+    }
+    .mapa-info-img img{
+        width: 15px;
+    }
+    .section-team {
+        max-width: 580px;
+    }
+    .social-rodape {
+        max-width: 300px;
+    }
+    .info-rodape, .form-rodape {
+        width: 200px;
+    }
+    .info-rodape{
+        font-size: 12px;
+    }
+    .social-rodape a{
+        width: 30px;
+        padding: 5px;
+    }
+    .social-rodape img{
+        width: auto;
+    }
+    #email{
+        font-size: 12px;
+    }
+    .form-rodape {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        width: 200px;
+    }
+    #finalizar{
+        width: 120px;
+        padding: 10px;
+        justify-content: center;
+    }
+
+}
+@media (max-width:450px){
+    .logoimg{
+        margin-left: 30px;
+        width: 60px;
+        height: 60px;
+    }
+    .menu-resp {
+        width: 35px;
+        margin-right: 30px;
+        display: block;
+    }
+    nav {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 60%;
+        height: calc(100vh - 100px);
+        top: 100px;
+        right: 0;
+    }
+    .menu ul {
+        flex-direction: column; 
+
+    }
+    .menu li a {
+        font-weight: bold;
+        height: 60px;
+        font-size: 28px;
+        margin-left: 50px;
+        border: none;
+    }
+    
+    .menu li.active a{
+        border: none;
+        color: #b27856;
+    }
+    .sliderarea h1 {
+        font-size: 30px;
+    }
+    .sliderarea h2{
+        font-size: 15px;
+    }
+
+    .section-aboutus{
+        flex-direction: column;
+        justify-content: center;
+        max-width: 1140px;
+    }
+    .section-aboutus--left{
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+    }
+    .section-aboutus--right{
+        width: auto;
+    }
+    .section-aboutus--right img{
+        max-width: 250px;
+    }
+    .section-services{
+        flex-wrap: wrap;
+        /*fazer com que o item quebre de linha automaticamnete*/
+    }
+    .section-service{
+        min-width: 50%;
+        /*para fazer com que fique somente 2 por linha nesse designe*/
+    }
+    .section-service:first-child{
+        border-left: 0;
+    }
+    .section-projects-filters{
+        padding: 7px;
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: center;
+    }
+    .section-projects-filters li{
+        padding: 5px;
+
+    }
+    .mapa{
+        padding: 0;
+        padding-bottom: 250px;
+    }
+    .mapa-info{
+        padding: 15px;
+        width: 100vw;
+        font-size: 12px;
+    }
+    .mapa-info-img{
+        width: 20px;
+        height: 20px;
+    }
+    .mapa-info-img img{
+        width: 15px;
+    }
+    .section-team {
+        max-width: 280px;
+    }
+    .rodape{
+        height: 100vw;
+        border-bottom: 0;
+    }
+    .area-rodape{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+
+    }
+    .social-rodape {
+        max-width: 300px;
+    }
+    .info-rodape, .form-rodape {
+        width: 250px;
+    }
+    .info-rodape{
+        font-size: 12px;
+    }
+    .social-rodape a{
+        width: 30px;
+        padding: 5px;
+    }
+    .social-rodape img{
+        width: auto;
+    }
+    #email{
+        font-size: 12px;
+    }
+    .form-rodape {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        width: 200px;
+    }
+    #finalizar{
+        width: 120px;
+        padding: 10px;
+        justify-content: center;
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+
+}
